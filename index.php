@@ -80,11 +80,12 @@
                                 <td><button type="button" class="btn btn-danger btn-sm delete_modal icon-remove" name="view" id="<?php echo $modal_row["Id"] ?>"></button></td>
                             </tr>
                             <?php }}else{?>
-                                <tr><td style="font-size: 20px;">Data not found.</td></tr>
+                                <tr><td style="font-size: 20px; text-align:center" colspan="4">Data not found.</td></tr>
                             <?php } ?>
                         </table>
                     </div>
                 </div>
+                                <!-- Add Modal -->
                 <div id="add_data_modal" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -108,6 +109,7 @@
                                         <label for="modal_gender" style="font-size:17px;">Select employee gender <span style="color:red;">*</span> </label>
                                         <div id="modal_gender_err" class="error_field"></div>
                                         <select name="modal_gender" id="modal_gender" class="form-control">
+                                            <option value="">Select Gender</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
@@ -133,6 +135,58 @@
                         </div>
                     </div>
                 </div>
+                                <!-- Edit Modal -->
+                <div id="edit_data_modal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit data through modal</h5>
+                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="POST" id="edit_form">
+                                    <div class="form-group">
+                                        <label for="edit_modal_name" style="font-size:17px;">Enter employee name <span style="color:red;">*</span> </label>
+                                        <div id="modal_name_err" class="error_field"></div>
+                                        <input type="text" name="edit_modal_name" id="edit_modal_name" class="form-control" placeholder="Employee name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_modal_address" style="font-size:17px;">Enter employee address <span style="color:red;">*</span> </label>
+                                        <div id="modal_address_err" class="error_field"></div>
+                                        <input type="text" name="edit_modal_address" id="edit_modal_address" class="form-control" placeholder="Employee address">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_modal_gender" style="font-size:17px;">Select employee gender <span style="color:red;">*</span> </label>
+                                        <div id="modal_gender_err" class="error_field"></div>
+                                        <select name="edit_modal_gender" id="edit_modal_gender" class="form-control">
+                                            <option value="">Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_modal_designation" style="font-size:17px;">Enter employee designation <span style="color:red;">*</span> </label>
+                                        <div id="modal_designation_err" class="error_field"></div>
+                                        <input type="text" name="edit_modal_designation" id="edit_modal_designation" class="form-control" placeholder="Enter designation">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit_modal_age" style="font-size:17px;">Enter employee age <span style="color:red;">*</span> </label>
+                                        <div id="modal_age_err" class="error_field"></div>
+                                        <input type="text" name="edit_modal_age" id="edit_modal_age" class="form-control" placeholder="Enter age">
+                                    </div>
+                                    <div align="center" class="form-group my-2">
+                                        <input type="hidden" id="edit_id" name="edit_id">
+                                        <input type="submit" value="Save" name="update" id="update" class="btn btn-primary btn-sm">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-danger btn-sm">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Detail Modal -->
                 <div id="data_modal" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">

@@ -48,6 +48,7 @@
                 })
             }
         })
+            // View Detail modal
         $(document).on('click', '.view_modal', function(){
             var employee_id = $(this).attr('id');
             // console.log(employee_id);
@@ -60,6 +61,87 @@
                     $('#data_modal').modal('show');
                 }
             })
+        })
+            // Fetch Data for Edit
+        $(document).on('click','.icon-edit', function () { 
+            var employee_id = $(this).attr('id');
+            $.ajax({
+                type: "POST",
+                url: "edit.php",
+                data: {employee_id:employee_id},
+                success: function (response) {
+                    $('#edit_data_modal').modal('show');
+                    var data = $.parseJSON(response);
+                    console.log(data);
+                    $('#edit_id').val(data.Id);
+                    $('#edit_modal_name').val(data.Name);
+                    $('#edit_modal_address').val(data.Address);
+                    $('#edit_modal_gender').val(data.Gender);
+                    $('#edit_modal_age').val(data.Age);
+                    $('#edit_modal_designation').val(data.Designation);
+                }
+            });
+        })
+
+        $('#edit_form').on('submit', function(event){
+            event.preventDefault();
+            // alert('hello');
+            let modal_name = "";
+            let modal_address = "";
+            let modal_gender = "";
+            let modal_designation = "";
+            let modal_age = "";
+            $('.error_field').html('');
+            
+            modal_name = $('#edit_modal_name').val();
+            modal_address = $('#edit_modal_address').val();
+            modal_gender = $('#edit_modal_gender').val();
+            modal_designation = $('#edit_modal_designation').val();
+            modal_age = $('#edit_modal_age').val();
+
+            if ((modal_name) == "") {
+                $('#modal_name_err').html('Employee name is required ?');
+            }else if((modal_address) == ""){
+                $('#modal_address_err').html('Employee address is required ?');
+            }else if((modal_gender) == ""){
+                $('#modal_gender_err').html('Employee gender is required');
+            }else if((modal_designation) == ""){
+                $('#modal_designation_err').html('Employee designation is required ?');
+            }else if((modal_age) == ""){
+                $('#modal_age_err').html('Employee age is required ?');
+            }else{
+                $.ajax({
+                    url : "update.php",
+                    method : "POST",
+                    data : $('#edit_form').serialize(),
+                    beforeSend: function(){
+                        $('#insert').val('Inserting');
+                    },
+                    success: function(modal_result){
+                        $('#edit_form')[0].reset();
+                        $('#employee_data').html(modal_result);
+                        $('#edit_data_modal').modal('hide');
+                        $('#update').val('Save');
+                    }
+                })
+            }
+        })
+            // Delete Data
+        $(document).on('click','.icon-remove', function () { 
+            var employee_id = $(this).attr('id');
+            if (confirm("Are you sure to delete this?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "delete.php",
+                    data: {employee_id:employee_id},
+                    success: function (response) {
+                        $('#employee_data').html(response);
+                        setTimeout(() => {
+                            location.reload(); 
+                        }, 1000);
+                    }
+                });
+            }
         })
     })
     
