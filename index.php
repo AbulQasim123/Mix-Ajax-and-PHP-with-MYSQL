@@ -147,17 +147,17 @@
                                 <form method="POST" id="edit_form">
                                     <div class="form-group">
                                         <label for="edit_modal_name" style="font-size:17px;">Enter employee name <span style="color:red;">*</span> </label>
-                                        <div id="modal_name_err" class="error_field"></div>
+                                        <div id="edit_modal_name_err" class="error_field"></div>
                                         <input type="text" name="edit_modal_name" id="edit_modal_name" class="form-control" placeholder="Employee name">
                                     </div>
                                     <div class="form-group">
                                         <label for="edit_modal_address" style="font-size:17px;">Enter employee address <span style="color:red;">*</span> </label>
-                                        <div id="modal_address_err" class="error_field"></div>
+                                        <div id="edit_modal_address_err" class="error_field"></div>
                                         <input type="text" name="edit_modal_address" id="edit_modal_address" class="form-control" placeholder="Employee address">
                                     </div>
                                     <div class="form-group">
                                         <label for="edit_modal_gender" style="font-size:17px;">Select employee gender <span style="color:red;">*</span> </label>
-                                        <div id="modal_gender_err" class="error_field"></div>
+                                        <div id="edit_modal_gender_err" class="error_field"></div>
                                         <select name="edit_modal_gender" id="edit_modal_gender" class="form-control">
                                             <option value="">Select Gender</option>
                                             <option value="Male">Male</option>
@@ -166,12 +166,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="edit_modal_designation" style="font-size:17px;">Enter employee designation <span style="color:red;">*</span> </label>
-                                        <div id="modal_designation_err" class="error_field"></div>
+                                        <div id="edit_modal_designation_err" class="error_field"></div>
                                         <input type="text" name="edit_modal_designation" id="edit_modal_designation" class="form-control" placeholder="Enter designation">
                                     </div>
                                     <div class="form-group">
                                         <label for="edit_modal_age" style="font-size:17px;">Enter employee age <span style="color:red;">*</span> </label>
-                                        <div id="modal_age_err" class="error_field"></div>
+                                        <div id="edit_modal_age_err" class="error_field"></div>
                                         <input type="text" name="edit_modal_age" id="edit_modal_age" class="form-control" placeholder="Enter age">
                                     </div>
                                     <div align="center" class="form-group my-2">

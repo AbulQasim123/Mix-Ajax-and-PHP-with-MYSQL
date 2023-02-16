@@ -100,15 +100,15 @@
             modal_age = $('#edit_modal_age').val();
 
             if ((modal_name) == "") {
-                $('#modal_name_err').html('Employee name is required ?');
+                $('#edit_modal_name_err').html('Employee name is required ?');
             }else if((modal_address) == ""){
-                $('#modal_address_err').html('Employee address is required ?');
+                $('#edit_modal_address_err').html('Employee address is required ?');
             }else if((modal_gender) == ""){
-                $('#modal_gender_err').html('Employee gender is required');
+                $('#edit_modal_gender_err').html('Employee gender is required');
             }else if((modal_designation) == ""){
-                $('#modal_designation_err').html('Employee designation is required ?');
+                $('#edit_modal_designation_err').html('Employee designation is required ?');
             }else if((modal_age) == ""){
-                $('#modal_age_err').html('Employee age is required ?');
+                $('#edit_modal_age_err').html('Employee age is required ?');
             }else{
                 $.ajax({
                     url : "update.php",
